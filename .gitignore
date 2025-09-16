@@ -1,0 +1,131 @@
+# Binarios compilados
+payment-emulator
+payment-emulator.exe
+pyments-dev-emulator
+pyments-dev-emulator.exe
+
+# Directorio de build
+build/
+dist/
+
+# Archivos de Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Archivos de test
+*.test
+
+# Archivos de output de go coverage
+*.out
+
+# Dependency directories (remove the comment below to include it)
+vendor/
+
+# Go workspace file
+go.work
+
+# Archivos de configuración local
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de configuración específicos del usuario
+*.local.yaml
+*.local.yml
+config.local.*
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Archivos de sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de certificados y claves privadas
+*.pem
+*.key
+*.crt
+*.cert
+
+# Base de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de backup
+*.bak
+*.backup
+
+# Archivos de profiling
+cpu.prof
+mem.prof
+*.prof
+
+# Directorio de datos locales
+data/
+storage/
+
+# Archivos de configuración de plugins personalizados
+plugins/*/local.*
+plugins/*/dev.*
+
+# Archivos de cache
+.cache/
+cache/
+
+# Archivos de documentación generados
+docs/build/
+
+# Archivos de distribución
+*.tar.gz
+*.zip
+*.deb
+*.rpm
+
+# Archivos de Docker
+.dockerignore
+
+# Variables de entorno específicas del desarrollo
+.envrc
+
+# Archivos de configuración de herramientas de desarrollo
+.air.toml
+
+# Coverage reports
+coverage.html
+coverage.xml
+coverage.txt
+
+# Directorios node_modules (si se usan herramientas de frontend)
+node_modules/
+
+# Archivos de lock de package managers
+package-lock.json
+yarn.lock
+
+# Archivos de configuración específicos del entorno de desarrollo
+docker-compose.override.yml

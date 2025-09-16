@@ -1,0 +1,15 @@
+name: "Bancard VPOS"
+description: "Emulador de Bancard VPOS para Paraguay - Sistema de pagos con tarjeta de crédito/débito"
+port: 8001
+type: "iframe"
+enabled: true
+routes:
+  - path: "/vpos/api/0.3/single_buy"
+    method: "POST"
+    response_type: "redirect"
+  - path: "/vpos/api/0.3/confirmation"
+    method: "POST"
+    response_type: "json"
+  - path: "/vpos/api/0.3/refund"
+    method: "POST"
+    response_type: "json"

@@ -36,9 +36,9 @@ func startServer(cmd *cobra.Command) {
 	plugins, _ := cmd.Flags().GetStringSlice("plugins")
 	dashboard, _ := cmd.Flags().GetBool("dashboard")
 
-	fmt.Printf("🚀 Iniciando Payment Emulator...\n")
-	fmt.Printf("📊 Dashboard: http://localhost:%d\n", port)
-	fmt.Printf("📖 API Docs: http://localhost:%d/docs\n", port)
+	fmt.Printf("Iniciando PYment Dev Emulator...\n")
+	fmt.Printf("Dashboard: http://localhost:%d\n", port)
+	fmt.Printf("API Docs: http://localhost:%d/docs\n", port)
 
 	// Crear servidor principal
 	mainServer := server.NewMainServer(port, dashboard)
@@ -50,7 +50,7 @@ func startServer(cmd *cobra.Command) {
 		pluginServer := server.NewPluginServer(pluginName, pluginPort)
 		pluginServers = append(pluginServers, pluginServer)
 
-		fmt.Printf("🔌 Plugin %s: http://localhost:%d\n", pluginName, pluginPort)
+		fmt.Printf(" Plugin %s: http://localhost:%d\n", pluginName, pluginPort)
 
 		// Iniciar plugin en goroutine
 		go func(srv *http.Server) {
@@ -67,15 +67,15 @@ func startServer(cmd *cobra.Command) {
 		}
 	}()
 
-	fmt.Printf("\n✅ Todos los servicios iniciados correctamente\n")
-	fmt.Printf("📝 Presiona Ctrl+C para detener\n\n")
+	fmt.Printf("\n Todos los servicios iniciados correctamente\n")
+	fmt.Printf("Presiona Ctrl+C para detener\n\n")
 
 	// Graceful shutdown
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 
-	fmt.Printf("\n🛑 Deteniendo servicios...\n")
+	fmt.Printf("\n Deteniendo servicios...\n")
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
@@ -92,5 +92,5 @@ func startServer(cmd *cobra.Command) {
 		}
 	}
 
-	fmt.Printf("✅ Servicios detenidos correctamente\n")
+	fmt.Printf(" Servicios detenidos correctamente\n")
 }

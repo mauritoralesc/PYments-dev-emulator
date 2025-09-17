@@ -24,7 +24,7 @@ help: ## Mostrar ayuda
 build: ## Compilar el binario
 	@echo "${YELLOW}Compilando ${BINARY_NAME}...${NC}"
 	go build ${LDFLAGS} -o ${BINARY_NAME}
-	@echo "${GREEN}✅ Compilación exitosa${NC}"
+	@echo "${GREEN} Compilación exitosa${NC}"
 
 run: build ## Compilar e iniciar el emulador
 	@echo "${YELLOW}Iniciando Payment Emulator...${NC}"
@@ -42,18 +42,18 @@ clean: ## Limpiar archivos de compilación
 	@echo "${YELLOW}Limpiando archivos...${NC}"
 	rm -f ${BINARY_NAME}
 	rm -rf ${BUILD_DIR}
-	@echo "${GREEN}✅ Limpieza completada${NC}"
+	@echo "${GREEN} Limpieza completada${NC}"
 
 install: build ## Instalar globalmente
 	@echo "${YELLOW}Instalando globalmente...${NC}"
 	sudo cp ${BINARY_NAME} /usr/local/bin/
-	@echo "${GREEN}✅ Instalado en /usr/local/bin/${BINARY_NAME}${NC}"
+	@echo "${GREEN} Instalado en /usr/local/bin/${BINARY_NAME}${NC}"
 
 deps: ## Instalar dependencias
 	@echo "${YELLOW}Instalando dependencias...${NC}"
 	go mod download
 	go mod tidy
-	@echo "${GREEN}✅ Dependencias instaladas${NC}"
+	@echo "${GREEN} Dependencias instaladas${NC}"
 
 # Compilación cross-platform
 release: clean ## Compilar para todas las plataformas
@@ -72,7 +72,7 @@ release: clean ## Compilar para todas las plataformas
 	@echo "  • macOS arm64..."
 	@GOOS=darwin GOARCH=arm64 go build ${LDFLAGS} -o ${BUILD_DIR}/${BINARY_NAME}-darwin-arm64
 	
-	@echo "${GREEN}✅ Compilación cross-platform completada en ${BUILD_DIR}/${NC}"
+	@echo "${GREEN} Compilación cross-platform completada en ${BUILD_DIR}/${NC}"
 
 # Comandos de utilidad
 plugins: build ## Listar plugins disponibles

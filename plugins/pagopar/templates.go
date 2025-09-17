@@ -29,7 +29,7 @@ const pagoparCheckoutHTML = `<!DOCTYPE html>
 </head>
 <body>
     <div class="container">
-        <h1>🏦 Pagopar - Checkout</h1>
+        <h1>Pagopar - Checkout</h1>
         <div class="info">
             <p><strong>Hash del pedido:</strong> {{.hash}}</p>
             <p><strong>Forma de pago seleccionada:</strong> {{.formaPago}}</p>
@@ -45,16 +45,16 @@ const pagoparCheckoutHTML = `<!DOCTYPE html>
         {{end}}
         
         <div style="margin-top: 30px;">
-            <button onclick="processPayment('success')">✅ Simular Pago Exitoso</button>
-            <button onclick="processPayment('error')" style="background: #dc3545; margin-left: 10px;">❌ Simular Error</button>
-            <button onclick="processPayment('pending')" style="background: #ffc107; color: black; margin-left: 10px;">⏳ Simular Pendiente</button>
+            <button onclick="processPayment('success')">Simular Pago Exitoso</button>
+            <button onclick="processPayment('error')" style="background: #dc3545; margin-left: 10px;"> Simular Error</button>
+            <button onclick="processPayment('pending')" style="background: #ffc107; color: black; margin-left: 10px;"> Simular Pendiente</button>
         </div>
         
         <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
-            <h3>🔄 Simular Flujo Completo</h3>
+            <h3>Simular Flujo Completo</h3>
             <p><small>Esto simulará el flujo completo con redirect a tu aplicación</small></p>
-            <button onclick="processPaymentWithRedirect('success')" style="background: #28a745;">✅ Pagar y Redirigir (Éxito)</button>
-            <button onclick="processPaymentWithRedirect('error')" style="background: #dc3545; margin-left: 10px;">❌ Pagar y Redirigir (Error)</button>
+            <button onclick="processPaymentWithRedirect('success')" style="background: #28a745;"> Pagar y Redirigir (Éxito)</button>
+            <button onclick="processPaymentWithRedirect('error')" style="background: #dc3545; margin-left: 10px;"> Pagar y Redirigir (Error)</button>
         </div>
     </div>
     
@@ -103,13 +103,13 @@ const pagoparResultHTML = `<!DOCTYPE html>
 <body>
     <div class="container">
         {{if eq .result "success"}}
-        <div class="status">✅</div>
+        <div class="status">Éxito</div>
         <div class="message" style="color: #28a745;">Pago Exitoso</div>
         {{else if eq .result "error"}}
-        <div class="status">❌</div>
+        <div class="status">Error</div>
         <div class="message" style="color: #dc3545;">Error en el Pago</div>
         {{else}}
-        <div class="status">⏳</div>
+        <div class="status">Pendiente</div>
         <div class="message" style="color: #ffc107;">Pago Pendiente</div>
         {{end}}
         
@@ -142,12 +142,12 @@ const pagoparDocsHTML = `<!DOCTYPE html>
 <body>
     <div class="container">
         <div class="header">
-            <h1>💳 {{.plugin.Name}}</h1>
+            <h1>{{.plugin.Name}}</h1>
             <p>{{.plugin.Description}}</p>
             <p><strong>Tipo:</strong> {{.plugin.Type}} | <strong>Puerto:</strong> {{.plugin.Port}}</p>
         </div>
         
-        <h2>🛤️ Rutas Disponibles</h2>
+        <h2>Rutas Disponibles</h2>
         {{range .plugin.Routes}}
         <div class="route">
             <span class="method">{{.Method}}</span>
@@ -156,7 +156,7 @@ const pagoparDocsHTML = `<!DOCTYPE html>
         </div>
         {{end}}
         
-        <h2>🧪 Ejemplo de Uso</h2>
+        <h2>Ejemplo de Uso</h2>
         <div class="route">
             <p>Para probar este plugin, realiza una petición POST a:</p>
             <div class="path">http://localhost:{{.plugin.Port}}/api/comercios/2.0/iniciar-transaccion</div>
@@ -189,27 +189,27 @@ const webhookSimulatorHTML = `<!DOCTYPE html>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔔 Simulador de Webhook Pagopar</h1>
+            <h1>Simulador de Webhook Pagopar</h1>
             <p>Simula las notificaciones que Pagopar envía a tu sistema</p>
         </div>
 
         <div class="info">
-            <strong>📝 Instrucciones:</strong>
+            <strong>Instrucciones:</strong>
             <p>Selecciona el resultado que deseas simular. Esto generará el webhook que Pagopar enviaría a tu endpoint de notificaciones.</p>
         </div>
 
         <div class="actions">
             <button class="button success" onclick="simulateWebhook('success')">
-                ✅ Pago Exitoso
+                 Pago Exitoso
             </button>
             <button class="button error" onclick="simulateWebhook('error')">
-                ❌ Pago Fallido  
+                 Pago Fallido  
             </button>
             <button class="button pending" onclick="simulateWebhook('pending')">
-                ⏳ Pago Pendiente
+                 Pago Pendiente
             </button>
             <button class="button cancel" onclick="simulateWebhook('cancel')">
-                🚫 Pago Cancelado
+                 Pago Cancelado
             </button>
         </div>
     </div>

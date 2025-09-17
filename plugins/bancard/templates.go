@@ -165,15 +165,15 @@ const bancardResultHTML = `<!DOCTYPE html>
 <body>
     <div class="container">
         {{if eq .result "success"}}
-        <div class="status">✅</div>
+        <div class="status">Éxito</div>
         <div class="message" style="color: #28a745;">¡Pago Exitoso!</div>
         <p>Su transacción ha sido procesada correctamente.</p>
         {{else if eq .result "error"}}
-        <div class="status">❌</div>
+        <div class="status">Error</div>
         <div class="message" style="color: #dc3545;">Error en el Pago</div>
         <p>No se pudo procesar su pago. Por favor, intente nuevamente.</p>
         {{else}}
-        <div class="status">🚫</div>
+        <div class="status">Pago Cancelado</div>
         <div class="message" style="color: #ffc107;">Pago Cancelado</div>
         <p>La transacción fue cancelada por el usuario.</p>
         {{end}}

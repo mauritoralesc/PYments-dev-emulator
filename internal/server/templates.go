@@ -27,23 +27,23 @@ func loadTemplates(r *gin.Engine) {
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏦 {{.title}}</h1>
+            <h1>{{.title}}</h1>
             <p>Emulador de medios de pago para desarrollo</p>
         </div>
         
-        <h2>📊 Servicios Activos</h2>
+        <h2>Servicios Activos</h2>
         {{range .ports}}
         <div class="plugin">
             <h3>Plugin en Puerto {{.}}</h3>
             <p class="status">● Estado: Activo</p>
-            <p><a href="http://localhost:{{.}}" target="_blank">📖 Ver Documentación</a></p>
+            <p><a href="http://localhost:{{.}}" target="_blank">er Documentación</a></p>
         </div>
         {{end}}
         
-        <h2>📚 Documentación</h2>
+        <h2>Documentación</h2>
         <div class="plugin">
-            <p><a href="/api/plugins">📋 Ver API de Plugins</a></p>
-            <p><a href="/health">💓 Health Check</a></p>
+            <p><a href="/api/plugins">Ver API de Plugins</a></p>
+            <p><a href="/health">Health Check</a></p>
         </div>
     </div>
 </body>
@@ -67,12 +67,12 @@ func loadTemplates(r *gin.Engine) {
 <body>
     <div class="container">
         <div class="header">
-            <h1>💳 {{.plugin.Name}}</h1>
+            <h1>{{.plugin.Name}}</h1>
             <p>{{.plugin.Description}}</p>
             <p><strong>Tipo:</strong> {{.plugin.Type}} | <strong>Puerto:</strong> {{.plugin.Port}}</p>
         </div>
         
-        <h2>🛤️ Rutas Disponibles</h2>
+        <h2>Rutas Disponibles</h2>
         {{range .plugin.Routes}}
         <div class="route">
             <span class="method">{{.Method}}</span>
@@ -81,7 +81,7 @@ func loadTemplates(r *gin.Engine) {
         </div>
         {{end}}
         
-        <h2>🧪 Ejemplo de Uso</h2>
+        <h2>Ejemplo de Uso</h2>
         <div class="route">
             <p>Para probar este plugin, realiza una petición POST a:</p>
             <div class="path">http://localhost:{{.plugin.Port}}{{if .plugin.Routes}}{{(index .plugin.Routes 0).Path}}{{end}}</div>
@@ -110,10 +110,10 @@ func loadTemplates(r *gin.Engine) {
 </head>
 <body>
     <div class="container">
-        <h1>💳 {{.plugin.Name}}</h1>
+        <h1>{{.plugin.Name}}</h1>
         
         <div class="info">
-            <h3>📄 Información de la Transacción</h3>
+            <h3>Información de la Transacción</h3>
             <p><strong>Ruta:</strong> {{.route.Path}}</p>
             <p><strong>Método:</strong> {{.route.Method}}</p>
             {{range $key, $value := .params}}
@@ -123,9 +123,9 @@ func loadTemplates(r *gin.Engine) {
         
         <div class="actions">
             <h3>🎮 Simular Resultado</h3>
-            <button class="button success" onclick="simulateResult('success')">✅ Pago Exitoso</button>
-            <button class="button error" onclick="simulateResult('error')">❌ Error de Pago</button>
-            <button class="button cancel" onclick="simulateResult('cancel')">🚫 Cancelado por Usuario</button>
+            <button class="button success" onclick="simulateResult('success')">Pago Exitoso</button>
+            <button class="button error" onclick="simulateResult('error')">Error de Pago</button>
+            <button class="button cancel" onclick="simulateResult('cancel')">Cancelado por Usuario</button>
         </div>
     </div>
 
@@ -178,10 +178,10 @@ func loadTemplates(r *gin.Engine) {
 </head>
 <body>
     <div class="container">
-        <h1>💳 {{.plugin.Name}}</h1>
+        <h1>{{.plugin.Name}}</h1>
         
         <div class="info">
-            <h3>📄 Información del Pago</h3>
+            <h3>Información del Pago</h3>
             <p><strong>Ruta:</strong> {{.route.Path}}</p>
             {{range $key, $value := .params}}
             <p><strong>{{$key}}:</strong> {{index $value 0}}</p>
@@ -189,10 +189,10 @@ func loadTemplates(r *gin.Engine) {
         </div>
         
         <div class="actions">
-            <h3>🎮 Simular Resultado</h3>
-            <button class="button success" onclick="simulateResult('success')">✅ Confirmar Pago</button>
-            <button class="button error" onclick="simulateResult('error')">❌ Error en Pago</button>
-            <button class="button cancel" onclick="simulateResult('cancel')">🚫 Cancelar</button>
+            <h3>Simular Resultado</h3>
+            <button class="button success" onclick="simulateResult('success')">Confirmar Pago</button>
+            <button class="button error" onclick="simulateResult('error')">Error en Pago</button>
+            <button class="button cancel" onclick="simulateResult('cancel')">Cancelar</button>
         </div>
     </div>
 
@@ -276,7 +276,7 @@ func loadPluginSpecificTemplates(templ *template.Template) {
 </head>
 <body>
     <div class="container">
-        <h1>🏦 Pagopar - Checkout</h1>
+        <h1>Pagopar - Checkout</h1>
         <div class="info">
             <p><strong>Hash del pedido:</strong> {{.hash}}</p>
             <p><strong>Forma de pago seleccionada:</strong> {{.formaPago}}</p>
@@ -292,16 +292,16 @@ func loadPluginSpecificTemplates(templ *template.Template) {
         {{end}}
         
         <div style="margin-top: 30px;">
-            <button onclick="processPayment('success')">✅ Simular Pago Exitoso</button>
-            <button onclick="processPayment('error')" style="background: #dc3545; margin-left: 10px;">❌ Simular Error</button>
-            <button onclick="processPayment('pending')" style="background: #ffc107; color: black; margin-left: 10px;">⏳ Simular Pendiente</button>
+            <button onclick="processPayment('success')">Simular Pago Exitoso</button>
+            <button onclick="processPayment('error')" style="background: #dc3545; margin-left: 10px;">Simular Error</button>
+            <button onclick="processPayment('pending')" style="background: #ffc107; color: black; margin-left: 10px;">Simular Pendiente</button>
         </div>
         
         <div style="margin-top: 20px; border-top: 1px solid #ddd; padding-top: 20px;">
-            <h3>🔄 Simular Flujo Completo</h3>
+            <h3>Simular Flujo Completo</h3>
             <p><small>Esto simulará el flujo completo con redirect a tu aplicación</small></p>
-            <button onclick="processPaymentWithRedirect('success')" style="background: #28a745;">✅ Pagar y Redirigir (Éxito)</button>
-            <button onclick="processPaymentWithRedirect('error')" style="background: #dc3545; margin-left: 10px;">❌ Pagar y Redirigir (Error)</button>
+            <button onclick="processPaymentWithRedirect('success')" style="background: #28a745;">Pagar y Redirigir (Éxito)</button>
+            <button onclick="processPaymentWithRedirect('error')" style="background: #dc3545; margin-left: 10px;">Pagar y Redirigir (Error)</button>
         </div>
     </div>
     
@@ -349,13 +349,13 @@ func loadPluginSpecificTemplates(templ *template.Template) {
 <body>
     <div class="container">
         {{if eq .result "success"}}
-        <div class="status">✅</div>
+        <div class="status">Exito</div>
         <div class="message" style="color: #28a745;">Pago Exitoso</div>
         {{else if eq .result "error"}}
-        <div class="status">❌</div>
+        <div class="status">Error</div>
         <div class="message" style="color: #dc3545;">Error en el Pago</div>
         {{else}}
-        <div class="status">⏳</div>
+        <div class="status">Pendiente</div>
         <div class="message" style="color: #ffc107;">Pago Pendiente</div>
         {{end}}
         
@@ -395,12 +395,12 @@ func loadPluginSpecificTemplates(templ *template.Template) {
     <div class="container">
         <div class="checkout-card">
             <div class="logo">
-                <h1>💳 Bancard VPOS</h1>
+                <h1>Bancard VPOS</h1>
                 <p>Procesamiento Seguro de Pagos</p>
             </div>
             
             <div class="order-info">
-                <h3>📋 Información de la Transacción</h3>
+                <h3>Información de la Transacción</h3>
                 <p><strong>Process ID:</strong> {{.data.ProcessID}}</p>
                 <p><strong>Monto:</strong> ₲ {{.data.Amount}}</p>
                 <p><strong>Moneda:</strong> {{.data.Currency}}</p>
@@ -408,13 +408,13 @@ func loadPluginSpecificTemplates(templ *template.Template) {
             
             <div class="actions">
                 <button class="button primary" onclick="processPayment('success')">
-                    ✅ Procesar Pago (₲ {{.data.Amount}})
+                    Procesar Pago (₲ {{.data.Amount}})
                 </button>
                 <button class="button error" onclick="processPayment('error')">
-                    ❌ Simular Error
+                    Simular Error
                 </button>
                 <button class="button secondary" onclick="processPayment('cancel')">
-                    🚫 Cancelar
+                    Cancelar
                 </button>
             </div>
         </div>
@@ -425,7 +425,7 @@ func loadPluginSpecificTemplates(templ *template.Template) {
             const processId = '{{.data.ProcessID}}';
             
             if (result === 'success') {
-                document.querySelector('.primary').innerHTML = '⏳ Procesando...';
+                document.querySelector('.primary').innerHTML = 'Procesando...';
                 document.querySelector('.primary').disabled = true;
                 
                 setTimeout(() => {
@@ -465,19 +465,19 @@ func loadPluginSpecificTemplates(templ *template.Template) {
 <body>
     <div class="container">
         {{if eq .result "success"}}
-        <div class="status">✅</div>
+        <div class="status">Exito</div>
         <div class="message" style="color: #28a745;">¡Pago Exitoso!</div>
         {{else if eq .result "error"}}
-        <div class="status">❌</div>
+        <div class="status">Error</div>
         <div class="message" style="color: #dc3545;">Error en el Pago</div>
         {{else}}
-        <div class="status">🚫</div>
+        <div class="status">Pendiente</div>
         <div class="message" style="color: #ffc107;">Pago Cancelado</div>
         {{end}}
         
         {{if .transaction_id}}
         <div class="details">
-            <h4>📄 Detalles de la Transacción</h4>
+            <h4>Detalles de la Transacción</h4>
             <p><strong>ID de Transacción:</strong> {{.transaction_id}}</p>
             <p><strong>Estado:</strong> {{.status}}</p>
             {{if .process_id}}<p><strong>Process ID:</strong> {{.process_id}}</p>{{end}}

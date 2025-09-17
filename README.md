@@ -1,10 +1,10 @@
-# Payment Emulator - Paraguay
+# PYment Dev Emulator - Paraguay
 
-🏦 **Emulador de Pasarelas de Pago para Paraguay**
+**Emulador de Pasarelas de Pago para Paraguay**
 
 Un emulador completo de medios de pago paraguayos para desarrollo y testing. Soporta Bancard, Pagopar y permite agregar plugins personalizados.
 
-## 🚀 Características
+## Características
 
 - **CLI Completo**: Gestión mediante comandos con Cobra
 - **Sistema de Plugins**: Cada medio de pago en su propio puerto
@@ -14,7 +14,7 @@ Un emulador completo de medios de pago paraguayos para desarrollo y testing. Sop
 - **Templates Embebidos**: No requiere archivos externos
 - **Documentación Automática**: Cada plugin tiene su documentación
 
-## 📦 Plugins Incluidos
+## Plugins Incluidos
 
 ### Bancard VPOS
 - **Puerto**: 8001
@@ -34,7 +34,7 @@ Un emulador completo de medios de pago paraguayos para desarrollo y testing. Sop
   - `GET /pagos/{hash}` - Página de checkout
   - `POST /emulator/webhook/{hash}` - Simulador de webhook
 
-## 🛠️ Instalación
+## Instalación
 
 ```bash
 # Compilar el proyecto
@@ -44,7 +44,7 @@ go build -o payment-emulator
 go install
 ```
 
-## 🎮 Uso
+## Uso
 
 ### Iniciar el Emulador
 
@@ -69,7 +69,7 @@ go install
 ./payment-emulator plugins add miplugin
 ```
 
-## 🌐 Acceso
+## Acceso
 
 Una vez iniciado:
 
@@ -79,7 +79,7 @@ Una vez iniciado:
 - **API de Estado**: http://localhost:8000/api/plugins
 - **Health Check**: http://localhost:8000/health
 
-## 💻 Integración con tu App
+## Integración con tu App
 
 ### Ejemplo Bancard (iframe)
 
@@ -122,16 +122,15 @@ const statusResponse = await fetch('http://localhost:8002/api/pedidos/1.1/traer'
 });
 ```
 
-## 🎯 Flujo de Testing
+## Flujo de Testing
 
 1. **Integra tu app** con `localhost:8001` o `localhost:8002`
 2. **Tu app abre** iframe/popup hacia el emulador
-3. **Emulador muestra** interfaz con botones de simulación
-4. **Clickea resultado**: "Pago Exitoso", "Error", "Cancelado"  
-5. **Emulador redirige** con parámetros apropiados
-6. **Tu app procesa** la respuesta como en producción
+3. **Clickea resultado**: "Pago Exitoso", "Error", "Cancelado"  
+4. **Emulador redirige** con parámetros apropiados
+5. **Tu app procesa** la respuesta como en producción
 
-## 🔧 Crear Plugin Personalizado
+## Crear Plugin Personalizado
 
 ```bash
 # Crear plugin
@@ -147,7 +146,7 @@ Ejemplo de configuración:
 name: "Mi Pago"
 description: "Mi sistema de pagos personalizado"
 port: 8003
-type: "iframe"  # o "popup"
+type: "iframe"  # o "redirección"
 enabled: true
 routes:
   - path: "/pay"
@@ -158,7 +157,7 @@ routes:
     response_type: "json"
 ```
 
-## 🏗️ Compilación Cross-Platform
+## Compilación Cross-Platform
 
 ```bash
 # Windows
@@ -171,7 +170,7 @@ GOOS=linux GOARCH=amd64 go build -o payment-emulator-linux
 GOOS=darwin GOARCH=amd64 go build -o payment-emulator-macos
 ```
 
-## 📝 Parámetros de Configuración
+## Parámetros de Configuración
 
 ### Flags del comando `start`
 
@@ -184,15 +183,7 @@ GOOS=darwin GOARCH=amd64 go build -o payment-emulator-macos
 - `PAYMENT_EMULATOR_PORT`: Puerto por defecto
 - `PAYMENT_EMULATOR_VERBOSE`: Modo verbose
 
-## � Testing Rápido
-
-### Script Automatizado
-```bash
-# Probar flujo completo de Pagopar
-./test_pagopar.sh
-```
-
-### Testing Manual
+### Testing
 
 **Flujo Pagopar (4 pasos):**
 1. **Crear orden**: `curl -X POST localhost:8002/api/comercios/2.0/iniciar-transaccion`
@@ -205,7 +196,7 @@ GOOS=darwin GOARCH=amd64 go build -o payment-emulator-macos
 2. Simular resultado en interfaz
 3. Procesar redirección
 
-## �🤝 Contribuir
+## Contribuir
 
 1. Fork el proyecto
 2. Crea tu feature branch
@@ -213,7 +204,7 @@ GOOS=darwin GOARCH=amd64 go build -o payment-emulator-macos
 4. Ejecuta las pruebas
 5. Crea un Pull Request
 
-## 📄 Licencia
+## Licencia
 
 MIT License - ver archivo LICENSE para detalles.
 

@@ -16,13 +16,13 @@ var listPluginsCmd = &cobra.Command{
 	Use:   "list",
 	Short: "Lista todos los plugins disponibles",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("📦 Plugins disponibles:")
+		fmt.Println("Plugins disponibles:")
 
 		availablePlugins := plugins.GetAvailablePlugins()
 		for _, plugin := range availablePlugins {
-			status := "❌ Deshabilitado"
+			status := "Deshabilitado"
 			if plugin.Enabled {
-				status = "✅ Habilitado"
+				status = "Habilitado"
 			}
 			fmt.Printf("  • %s - %s %s\n", plugin.Name, plugin.Description, status)
 			fmt.Printf("    Puerto: %d | Tipo: %s\n", plugin.Port, plugin.Type)
@@ -37,16 +37,16 @@ var addPluginCmd = &cobra.Command{
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		pluginName := args[0]
-		fmt.Printf("➕ Creando plugin: %s\n", pluginName)
+		fmt.Printf("Creando plugin: %s\n", pluginName)
 
 		err := plugins.CreatePluginTemplate(pluginName)
 		if err != nil {
-			fmt.Printf("❌ Error creando plugin: %v\n", err)
+			fmt.Printf("Error creando plugin: %v\n", err)
 			return
 		}
 
-		fmt.Printf("✅ Plugin %s creado exitosamente\n", pluginName)
-		fmt.Printf("📁 Edita el archivo: plugins/%s/config.yaml\n", pluginName)
+		fmt.Printf(" Plugin %s creado exitosamente\n", pluginName)
+		fmt.Printf(" Edita el archivo: plugins/%s/config.yaml\n", pluginName)
 	},
 }
 

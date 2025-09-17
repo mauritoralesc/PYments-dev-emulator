@@ -12,7 +12,7 @@ type Plugin struct {
 	Name        string  `yaml:"name"`
 	Description string  `yaml:"description"`
 	Port        int     `yaml:"port"`
-	Type        string  `yaml:"type"` // "iframe" o "popup"
+	Type        string  `yaml:"type"` // "iframe" o "redirección"
 	Enabled     bool    `yaml:"enabled"`
 	Routes      []Route `yaml:"routes"`
 }
@@ -41,7 +41,7 @@ func GetDefaultPlugin(name string, port int) *Plugin {
 	case "bancard":
 		return &Plugin{
 			Name:        "Bancard VPOS",
-			Description: "Emulador de Bancard VPOS para Paraguay",
+			Description: "Emulador de Bancard VPOS",
 			Port:        port,
 			Type:        "iframe",
 			Enabled:     true,
@@ -53,7 +53,7 @@ func GetDefaultPlugin(name string, port int) *Plugin {
 	case "pagopar":
 		return &Plugin{
 			Name:        "Pagopar",
-			Description: "Emulador de Pagopar para Paraguay",
+			Description: "Emulador de Pagopar",
 			Port:        port,
 			Type:        "redirect",
 			Enabled:     true,

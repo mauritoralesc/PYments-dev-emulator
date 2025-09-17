@@ -9,7 +9,6 @@ Un emulador completo de medios de pago paraguayos para desarrollo y testing. Sop
 - **CLI Completo**: Gestión mediante comandos con Cobra
 - **Sistema de Plugins**: Cada medio de pago en su propio puerto
 - **Emulación Realista**: Simula flujos reales de las pasarelas
-- **Sin Docker**: Binario único sin dependencias
 - **Cross-Platform**: Windows, Linux, macOS
 - **Templates Embebidos**: No requiere archivos externos
 - **Documentación Automática**: Cada plugin tiene su documentación
@@ -203,10 +202,6 @@ GOOS=darwin GOARCH=amd64 go build -o payment-emulator-macos
 3. Agrega tus cambios  
 4. Ejecuta las pruebas
 5. Crea un Pull Request
-
-## Licencia
-
-MIT License - ver archivo LICENSE para detalles.
 
 ---
 
